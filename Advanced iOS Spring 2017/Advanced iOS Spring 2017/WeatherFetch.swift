@@ -32,6 +32,26 @@ class WeatherFetch {
                 print("Raw data:\n\(data!)\n")
                 let dataString = String(data: data!, encoding: String.Encoding.utf8)
                 print("Human-readable data:\n\(dataString!)")
+                
+                var names = String()
+                var weath = String()
+                do {
+                    if let data = data,
+                    let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+                    let cityNames = json["name"] as? String {
+                        names.append(cityNames)
+                    }
+                    let main = json["main"] as? [String: Any]
+                    let temps = main["temps"] as? Double
+                    weath.append(temps)
+                    
+                } catch {
+                    print("Error parsing JSON: \(error)")
+                }
+                print("Here goes names:")
+                print(names)
+                print("Here goes weather:")
+                print(weath)
             }
         }
         dataTask.resume()

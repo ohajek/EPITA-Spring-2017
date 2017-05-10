@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Advanced iOS Spring 2017
 //
-//  Created by Suiz Uzcategui on 19/04/2017.
+//  Created by Suiz Uzcate	gui on 19/04/2017.
 //  Copyright © 2017 ___AdvancediOS___. All rights reserved.
 //
 
