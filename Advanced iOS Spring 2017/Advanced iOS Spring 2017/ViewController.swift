@@ -10,8 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var cityLabel: UILabel!
-    @IBOutlet weak var tempLabel: UILabel! //! unpacking nullable optional tzn ?
+    ///@IBOutlet weak var cityLabel: UILabel!
+    ///@IBOutlet weak var tempLabel: UILabel! //! unpacking nullable optional tzn ?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +20,8 @@ class ViewController: UIViewController {
         //let weather = WeatherFetch()
         //weather.getWeather(city: "Berlin")
         let weather = Weather(city: "Berlin",temp: 27,pict: nil)
-        cityLabel.text = weather!.city
-        tempLabel.text = String(describing: weather!.temp).description
+        ///cityLabel.text = weather!.city
+        ///tempLabel.text = String(describing: weather!.temp).description
     }
 
     /*override func didReceiveMemoryWarning() {
