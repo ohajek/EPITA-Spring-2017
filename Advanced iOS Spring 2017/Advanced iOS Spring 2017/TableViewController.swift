@@ -50,13 +50,22 @@ class TableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        /*
         //reuse this particular cell in order to allow s;ooth scrolling throughout big tables
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         cell.textLabel?.text = weatherArr[indexPath.row].city
         cell.detailTextLabel?.text = String(describing: weatherArr[indexPath.row].temp.description)
         //todo: different img for different weather weathIcon.textLabel?.
         // Configure the cell...
+        */
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "WeatherTableCell", for: indexPath) as?
+            WeatherTableViewCell
+            else {
+                fatalError("error")
+        }
+        cell.CityLabel.text = weatherArr[indexPath.row].city
+        cell.TempLabel.text = String(describing: weatherArr[indexPath.row].temp)
         return cell
     }
     
