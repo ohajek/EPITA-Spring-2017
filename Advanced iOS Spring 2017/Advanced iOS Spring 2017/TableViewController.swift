@@ -69,7 +69,16 @@ class TableViewController: UITableViewController {
         return cell
     }
     
-
+    @IBAction func unwindToWeatherList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? AddCityViewController,
+            let weather = sourceViewController.weather {
+        
+            let newIndexPath = IndexPath(row: weatherArr.count, section: 0)
+            weatherArr.append(weather)
+        
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
