@@ -13,10 +13,13 @@ class WeatherDetailScreenViewController: UIViewController {
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var weatherImage: UIImageView!
 
+    var data:Weather?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        cityLabel.text = data?.city
+        tempLabel.text = String(describing: data?.temp)
+        weatherImage.image = data?.pict
     }
 
     override func didReceiveMemoryWarning() {

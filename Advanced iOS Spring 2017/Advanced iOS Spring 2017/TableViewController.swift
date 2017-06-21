@@ -10,16 +10,14 @@ import UIKit
 
 class TableViewController: UITableViewController {
 
-
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        weatherArr.append(Weather(city: "Osaka",temp: 15,pict: nil)!)
-        weatherArr.append(Weather(city: "La Paz",temp: 35,pict: nil)!)
-        weatherArr.append(Weather(city: "Stockholm",temp: -5,pict: nil)!)
-        weatherArr.append(Weather(city: "Brno",temp: 19,pict: nil)!)
-        weatherArr.append(Weather(city: "Rennes",temp: 21,pict: nil)!)
+        weatherArr.append(Weather(city: "Prague",temp: 28,pict: UIImage(named:"czechia"))!)
+        weatherArr.append(Weather(city: "Bratislava",temp: 30,pict: UIImage(named:"slovakia"))!)
+        weatherArr.append(Weather(city: "Tegucigalpa",temp: 25,pict: UIImage(named:"honduras"))!)
+        weatherArr.append(Weather(city: "Sucre",temp: 16,pict: UIImage(named:"bolivia"))!)
+        weatherArr.append(Weather(city: "Warsaw",temp: 21,pict: UIImage(named:"poland"))!)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -66,6 +64,7 @@ class TableViewController: UITableViewController {
         }
         cell.CityLabel.text = weatherArr[indexPath.row].city
         cell.TempLabel.text = String(describing: weatherArr[indexPath.row].temp)
+        cell.ImageWeather.image = weatherArr[indexPath.row].pict
         return cell
     }
     
@@ -79,6 +78,21 @@ class TableViewController: UITableViewController {
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
     }
+
+    var dataToPass:Weather!
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let indexPath = tableView.indexPathForSelectedRow!
+        
+        dataToPass = weatherArr[indexPath.row]
+        performSegue(withIdentifier: "push", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "push") {
+            (segue.destination as! WeatherDetailScreenViewController).data = dataToPass
+        }
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
