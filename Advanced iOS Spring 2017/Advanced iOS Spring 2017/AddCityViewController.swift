@@ -45,10 +45,22 @@ class AddCityViewController: UIViewController {
             return
         }
         
+        //Checking if city name contains any numbers
         let city = cityNameTextField.text
-        let temp = tempTextField.text //Check if it is actually a NUMBER
+        let decimalCharacters = CharacterSet.decimalDigits
+        let decimalRange = city?.rangeOfCharacter(from: decimalCharacters)
+        if decimalRange != nil {
+            return
+        }
         
-        weather = Weather.init(city: city!, temp: Int(temp!)!, pict: nil)
+        //Checking if temperature is a number
+        let temp = Int(tempTextField.text!)
+        if temp == nil{
+            return
+        }
+
+        
+        weather = Weather.init(city: city!, temp: Int(temp!), pict: nil)
     }
 
 }

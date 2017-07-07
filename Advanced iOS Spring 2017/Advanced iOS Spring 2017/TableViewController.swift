@@ -18,12 +18,6 @@ class TableViewController: UITableViewController {
         weatherArr.append(Weather(city: "Tegucigalpa",temp: 25,pict: UIImage(named:"honduras"))!)
         weatherArr.append(Weather(city: "Sucre",temp: 16,pict: UIImage(named:"bolivia"))!)
         weatherArr.append(Weather(city: "Warsaw",temp: 21,pict: UIImage(named:"poland"))!)
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,7 +57,7 @@ class TableViewController: UITableViewController {
                 fatalError("error")
         }
         cell.CityLabel.text = weatherArr[indexPath.row].city
-        cell.TempLabel.text = String(describing: weatherArr[indexPath.row].temp)
+        cell.TempLabel.text = String(describing: weatherArr[indexPath.row].temp) + "°"
         cell.ImageWeather.image = weatherArr[indexPath.row].pict
         return cell
     }

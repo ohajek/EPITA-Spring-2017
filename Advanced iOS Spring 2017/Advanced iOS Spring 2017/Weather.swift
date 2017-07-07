@@ -2,7 +2,7 @@
 //  Weather.swift
 //  Advanced iOS Spring 2017
 //
-//  Created by BB on 17/05/17.
+//  Created by Guest User on 17/05/17.
 //  Copyright © 2017 ___AdvancediOS___. All rights reserved.
 //
 
@@ -13,8 +13,7 @@ class Weather {
     
     var city: String
     var temp: Int
-    var pict: UIImage? //can be nil!!!
-    //2 ways to declare var: var = changeable; let = const
+    var pict: UIImage?
     
     init?(city: String, temp: Int, pict: UIImage?)
     {

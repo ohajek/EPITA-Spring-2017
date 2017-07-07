@@ -18,7 +18,7 @@ class WeatherDetailScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         cityLabel.text = data?.city
-        tempLabel.text = String(describing: data?.temp)
+        tempLabel.text = String(describing: data!.temp) + "°"
         weatherImage.image = data?.pict
     }
 
